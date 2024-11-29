@@ -4,7 +4,7 @@ This template provides a batteries included setup for an ICP/React application w
 
 > [!TIP]
 > Fork this repository as a starting point for your next ICP project.
-> 
+>
 > Live demo: <https://upacy-bqaaa-aaaal-qr7qa-cai.icp0.io>
 
 **Fork it and use as a base for your next ICP project!**
@@ -17,23 +17,23 @@ This template provides a batteries included setup for an ICP/React application w
 
 ![](./media/screenshot.png)
 
-
 ## Features
 
 ### Backend
 
 The Rust based backend exposes one endpoint only, the `greet` function that returns a greeting message.
 
-### Frontend 
+### Frontend
 
 The React/Vite/TS based frontend allows the user to input a name and click a button to fetch the greeting message from the backend.
 
 Dependencies:
+
 - [SWC](https://swc.rs/): The Rust based compiler and bundler that provides up to 70x faster build times than Babel.
 - [Tailwind 4](https://tailwindcss.com/docs/v4-beta): The new version of Tailwind CSS is a ground-up rewrite of the framework, providing faster builds, great new CSS classes and better performance.
 - [Vite 6](https://vite.dev/): The most significant major release since Vite 2, featuring a new Environment API for enhanced flexibility, extended framework support, and streamlined performance for modern web development.
 - [Eslint 9](https://eslint.org/): The latest release of Eslint introduces the flat configuration API along with new rules and bug fixes.
-- [React Query 5](https://tanstack.com/query/latest): The template uses React Query for data fetching, caching and loading state management.
+- [Tanstack Query 5](https://tanstack.com/query/latest): The template uses Tanstack Query for data fetching, caching and loading state management.
 - [shadcn/ui](https://ui.shadcn.com/): Sorry, no. Shadcn is not available for Tailwind 4 yet. Soon hopefully.
 
 ## Setup, dev environment
@@ -105,4 +105,4 @@ pnpm run dev
 [issues-shield]: https://img.shields.io/github/issues/kristoferlund/ic-vite-react-next.svg?style=for-the-badge
 [issues-url]: https://github.com/kristoferlund/ic-vite-react-next/issues
 [license-shield]: https://img.shields.io/github/license/kristoferlund/ic-vite-react-next.svg?style=for-the-badge
-[license-url]: https://github.com/kristoferlund/ic-vite-react-next/blob/master/LICENSE.txt
+
