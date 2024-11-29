@@ -23,5 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
+.env
 .dfx
 target
+canister_ids.json
