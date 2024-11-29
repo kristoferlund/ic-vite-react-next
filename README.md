@@ -7,8 +7,6 @@ This template provides a batteries included setup for an ICP/React application w
 >
 > Live demo: <https://upacy-bqaaa-aaaal-qr7qa-cai.icp0.io>
 
-**Fork it and use as a base for your next ICP project!**
-
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
