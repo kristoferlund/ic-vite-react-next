@@ -1,6 +1,6 @@
 # ICP + React + TypeScript + Vite
 
-This template provides a batteries included setup for an ICP/React application with the latest versions of Vite, TypeScript, Tailwind CSS, SWC, Eslint and React Query.
+This template provides a batteries included setup for an ICP/React application with the latest versions of Vite, TypeScript, Tailwind CSS, SWC, Eslint and IC Reactor library.
 
 > [!TIP]
 > Fork this repository as a starting point for your next ICP project.
@@ -31,7 +31,7 @@ Dependencies:
 - [Tailwind 4](https://tailwindcss.com/docs/v4-beta): The new version of Tailwind CSS is a ground-up rewrite of the framework, providing faster builds, great new CSS classes and better performance.
 - [Vite 6](https://vite.dev/): The most significant major release since Vite 2, featuring a new Environment API for enhanced flexibility, extended framework support, and streamlined performance for modern web development.
 - [Eslint 9](https://eslint.org/): The latest release of Eslint introduces the flat configuration API along with new rules and bug fixes.
-- [Tanstack Query 5](https://tanstack.com/query/latest): The template uses Tanstack Query for data fetching, caching and loading state management.
+- [ic-reactor/react](https://github.com/ic-reactor/react): A React library for building Internet Computer dapps with declarative bindings and hooks.
 - [shadcn/ui](https://ui.shadcn.com/): Sorry, no. Shadcn is not available for Tailwind 4 yet. Soon hopefully.
 
 ## Setup, dev environment
@@ -103,4 +103,3 @@ pnpm run dev
 [issues-shield]: https://img.shields.io/github/issues/kristoferlund/ic-vite-react-next.svg?style=for-the-badge
 [issues-url]: https://github.com/kristoferlund/ic-vite-react-next/issues
 [license-shield]: https://img.shields.io/github/license/kristoferlund/ic-vite-react-next.svg?style=for-the-badge
-

@@ -1,21 +1,22 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ActorProvider, AgentProvider } from "@ic-reactor/react"
+import { StrictMode } from "react"
+import { createRoot } from "react-dom/client"
+import { canisterId, idlFactory } from "../backend/declarations"
+import App from "./App.tsx"
+import "./index.css"
 
-const queryClient = new QueryClient()
-
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root")
 
 if (!rootElement) {
-  throw new Error("Root element not found");
+  throw new Error("Root element not found")
 }
 
 createRoot(rootElement).render(
   <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
-  </StrictMode>,
+    <AgentProvider withProcessEnv>
+      <ActorProvider canisterId={canisterId} idlFactory={idlFactory}>
+        <App />
+      </ActorProvider>
+    </AgentProvider>
+  </StrictMode>
 )

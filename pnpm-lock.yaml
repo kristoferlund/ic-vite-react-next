@@ -17,12 +17,12 @@ importers:
       '@dfinity/principal':
         specifier: ^2.1.3
         version: 2.1.3
+      '@ic-reactor/react':
+        specifier: ^1.14.6
+        version: 1.14.6(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/auth-client@2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/identity@2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)(@peculiar/webcrypto@1.5.0))(@dfinity/principal@2.1.3))(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/identity@2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)(@peculiar/webcrypto@1.5.0))(@dfinity/principal@2.1.3)(@types/react@18.3.12)(react@18.3.1)(zustand@4.5.5(@types/react@18.3.12)(react@18.3.1))
       '@tailwindcss/vite':
         specifier: 4.0.0-beta.3
         version: 4.0.0-beta.3(postcss@8.4.49)(svelte@5.2.10)(typescript@5.6.3)(vite@6.0.1(jiti@2.4.1)(lightningcss@1.28.2))
-      '@tanstack/react-query':
-        specifier: ^5.61.5
-        version: 5.61.5(react@18.3.1)
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
@@ -82,16 +82,34 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
+  '@babel/runtime@7.26.0':
+    resolution: {integrity: sha512-FDSOghenHTiToteC/QRlv2q3DhPZ/oOXTBoirfWNx1Cx3TMVcGWQtMMmQcSvb/JjpNeGzx8Pq/b4fKEJuWm1sw==}
+    engines: {node: '>=6.9.0'}
+
   '@dfinity/agent@2.1.3':
     resolution: {integrity: sha512-4XmqhFR3GQSUrmx7lMFx7DyHEhFkM6nz4O9FeYJ/WpkmPe8tulKaAfgWbWdTSCjbd8meCgKVHo+QYj+JHXagcw==}
     peerDependencies:
       '@dfinity/candid': ^2.1.3
       '@dfinity/principal': ^2.1.3
 
+  '@dfinity/auth-client@2.1.3':
+    resolution: {integrity: sha512-6lxv7w8FWSnu5FxMa75O1lddUQJWDDMgJCG1DeYM4+08dWy0TxV/CeEo2uInAdqwlZECgQYB3yQEZKUNkbA6OQ==}
+    peerDependencies:
+      '@dfinity/agent': ^2.1.3
+      '@dfinity/identity': ^2.1.3
+      '@dfinity/principal': ^2.1.3
+
   '@dfinity/candid@2.1.3':
     resolution: {integrity: sha512-Asn7AfydLhhk7E5z9oW+5UL6ne11gxFlYTxHuhrIc7FdqYlM5Flcq1Wfg9EzRa6Btdol3w58Bcph7Brwh1bcIQ==}
     peerDependencies:
       '@dfinity/principal': ^2.1.3
+
+  '@dfinity/identity@2.1.3':
+    resolution: {integrity: sha512-qII0V91S1YeIz5/XRHomwrUhTME+C3oqdTnb99tBitXA2Gq6LU2JaCLbKbN7ehhSyW6EjO4tySJxANz6hYENcQ==}
+    peerDependencies:
+      '@dfinity/agent': ^2.1.3
+      '@dfinity/principal': ^2.1.3
+      '@peculiar/webcrypto': ^1.4.0
 
   '@dfinity/principal@2.1.3':
     resolution: {integrity: sha512-HtiAfZcs+ToPYFepVJdFlorIfPA56KzC6J97ZuH2lGNMTAfJA+NEBzLe476B4wVCAwZ0TiGJ27J4ks9O79DFEg==}
@@ -294,6 +312,28 @@ packages:
     resolution: {integrity: sha512-c7hNEllBlenFTHBky65mhq8WD2kbN9Q6gk0bTk8lSBvc554jpXSkST1iePudpt7+A/AQvuHs9EMqjHDXMY1lrA==}
     engines: {node: '>=18.18'}
 
+  '@ic-reactor/core@1.14.2':
+    resolution: {integrity: sha512-KwUa2Ehabm/tKfmaEP3xl3HU53WFzHG+VMZdBQCZyxM3QDJmvHR70Fq2CraYHfmDgnUKX/ClFERayzBn8COZCQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      '@dfinity/agent': '>=2.1'
+      '@dfinity/auth-client': '>=2.1'
+      '@dfinity/candid': '>=2.1'
+      '@dfinity/identity': '>=2.1'
+      '@dfinity/principal': '>=2.1'
+
+  '@ic-reactor/react@1.14.6':
+    resolution: {integrity: sha512-PyCgY1AHulJLcHHy6EpS+mTRJhGLQzGxvKA/Qk0IrrVIhqhJ4wz6LODf9jliLDUNWBjVxR+pvJISg5Yj1eE07A==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      '@dfinity/agent': '>=2.1'
+      '@dfinity/auth-client': '>=2.1'
+      '@dfinity/candid': '>=2.1'
+      '@dfinity/identity': '>=2.1'
+      '@dfinity/principal': '>=2.1'
+      react: '>=16.8'
+      zustand: '4.5'
+
   '@jridgewell/gen-mapping@0.3.5':
     resolution: {integrity: sha512-IzL8ZoEDIBRWEzlCcRhOaCupYyN5gdIK+Q6fbFdPDg6HqX6jpkItn7DFIpW9LQzXG6Df9sA7+OKnq0qlz/GaQg==}
     engines: {node: '>=6.0.0'}
@@ -335,6 +375,17 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
+
+  '@peculiar/asn1-schema@2.3.13':
+    resolution: {integrity: sha512-3Xq3a01WkHRZL8X04Zsfg//mGaA21xlL4tlVn4v2xGT0JStiztATRkMwa5b+f/HXmY2smsiLXYK46Gwgzvfg3g==}
+
+  '@peculiar/json-schema@1.1.12':
+    resolution: {integrity: sha512-coUfuoMeIB7B8/NMekxaDzLhaYmp0HZNPEjYRm9goRou8UZIC3z21s0sL9AWoCw4EG876QyO3kYrc61WNF9B/w==}
+    engines: {node: '>=8.0.0'}
+
+  '@peculiar/webcrypto@1.5.0':
+    resolution: {integrity: sha512-BRs5XUAwiyCDQMsVA9IDvDa7UBR9gAvPHgugOeGng3YN6vJ9JYonyDc0lNczErgtCWtucjR5N7VtaonboD/ezg==}
+    engines: {node: '>=10.12.0'}
 
   '@rollup/rollup-android-arm-eabi@4.27.4':
     resolution: {integrity: sha512-2Y3JT6f5MrQkICUyRVCw4oa0sutfAsgaSsb0Lmmy1Wi2y7X5vT9Euqw4gOsCyy0YfKURBg35nhUKZS4mDcfULw==}
@@ -579,14 +630,6 @@ packages:
     peerDependencies:
       vite: ^5.2.0
 
-  '@tanstack/query-core@5.61.5':
-    resolution: {integrity: sha512-iG5vqurEOEbv+paP6kW3zPENa99kSIrd1THISJMaTwVlJ+N5yjVDNOUwp9McK2DWqWCXM3v13ubBbAyhxT78UQ==}
-
-  '@tanstack/react-query@5.61.5':
-    resolution: {integrity: sha512-rjy8aqPgBBEz/rjJnpnuhi8TVkVTorMUsJlM3lMvrRb5wK6yzfk34Er0fnJ7w/4qyF01SnXsLB/QsTBsLF5PaQ==}
-    peerDependencies:
-      react: ^18 || ^19
-
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
 
@@ -725,6 +768,10 @@ packages:
   arraybuffer.prototype.slice@1.0.3:
     resolution: {integrity: sha512-bMxMKAjg13EBSVscxTaYA4mRc5t1UAXa2kXiGTNfZ079HIWXEkKmkgFrh/nJqamaLSrXO5H4WFFkPEaLJWbs3A==}
     engines: {node: '>= 0.4'}
+
+  asn1js@3.0.5:
+    resolution: {integrity: sha512-FVnvrKJwpt9LP2lAMl8qZswRNm3T4q9CON+bxldk2iwk3FFpuwhx2FfinyitizWHsVYyaY+y5JzDR0rCMV5yTQ==}
+    engines: {node: '>=12.0.0'}
 
   available-typed-arrays@1.0.7:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
@@ -1071,6 +1118,9 @@ packages:
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
+
+  idb@7.1.1:
+    resolution: {integrity: sha512-gchesWBzyvGHRO9W8tzUWFDycow5gwjvFKfyV9FF32Y7F50yZMp7mP+T2mJIWFx49zicqyC4uefHM17o6xKIVQ==}
 
   ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
@@ -1431,6 +1481,13 @@ packages:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
 
+  pvtsutils@1.3.6:
+    resolution: {integrity: sha512-PLgQXQ6H2FWCaeRak8vvk1GW462lMxB5s3Jm673N82zI4vqtVUPuZdffdZbPDFRoU8kAhItWFtPCWiPpp4/EDg==}
+
+  pvutils@1.1.3:
+    resolution: {integrity: sha512-pMpnA0qRdFp32b1sJl1wOJNxZLQ2cbQx+k6tjNtZ8CpvVhNqEPRgivZ2WOUev2YMajecdH7ctUPDvEe87nariQ==}
+    engines: {node: '>=6.0.0'}
+
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
@@ -1453,6 +1510,9 @@ packages:
   reflect.getprototypeof@1.0.7:
     resolution: {integrity: sha512-bMvFGIUKlc/eSfXNX+aZ+EL95/EgZzuwA0OBPTbZZDEJw/0AkentjMuM1oiRfwHrshqk4RzdgiTg5CcDalXN5g==}
     engines: {node: '>= 0.4'}
+
+  regenerator-runtime@0.14.1:
+    resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
 
   regexp.prototype.flags@1.5.3:
     resolution: {integrity: sha512-vqlC04+RQoFalODCbCumG2xIOvapzVMHwsyIGM/SIE8fRhFFsXeH8/QQ+s0T0kDAhKc4k30s73/0ydkHQz6HlQ==}
@@ -1619,6 +1679,9 @@ packages:
     peerDependencies:
       typescript: '>=4.2.0'
 
+  tslib@2.8.1:
+    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
+
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
@@ -1659,6 +1722,11 @@ packages:
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
+
+  use-sync-external-store@1.2.2:
+    resolution: {integrity: sha512-PElTlVMwpblvbNqQ82d2n6RjStvdSoNe9FG28kNfz3WiXilJm4DdNkEzRhCZuIDwY8U08WVihhGR5iRqAwfDiw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -1708,6 +1776,9 @@ packages:
       yaml:
         optional: true
 
+  webcrypto-core@1.8.1:
+    resolution: {integrity: sha512-P+x1MvlNCXlKbLSOY4cYrdreqPG5hbzkmawbcXLKN/mf6DZW0SdNNkZ+sjwsqVkI4A4Ko2sPZmkZtCKY58w83A==}
+
   which-boxed-primitive@1.0.2:
     resolution: {integrity: sha512-bwZdv0AKLpplFY2KZRX6TvyuN7ojjr7lwkg6ml0roIy9YeuSr7JS372qlNW18UQYzgYK9ziGcerWqZOmEn9VNg==}
 
@@ -1739,12 +1810,37 @@ packages:
   zimmerframe@1.1.2:
     resolution: {integrity: sha512-rAbqEGa8ovJy4pyBxZM70hg4pE6gDgaQ0Sl9M3enG3I0d6H4XSAM3GeNGLKnsBpuijUow064sf7ww1nutC5/3w==}
 
+  zustand-utils@1.3.2:
+    resolution: {integrity: sha512-c+X8whiqWKgl6r3jzzlNR6vp5ZHsqfIxbZN2uyv+GlqATKh//6GIneywm7tcq+8XZXINT8N9tnDH8npPdXDLEA==}
+    peerDependencies:
+      react: '>=16.8'
+      zustand: '>=4.4.1'
+
+  zustand@4.5.5:
+    resolution: {integrity: sha512-+0PALYNJNgK6hldkgDq2vLrw5f6g/jCInz52n9RTpropGgeAf/ioFUCdtsjCqu4gNhW9D01rUQBROoRjdzyn2Q==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      '@types/react': '>=16.8'
+      immer: '>=9.0.6'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
+
 snapshots:
 
   '@ampproject/remapping@2.3.0':
     dependencies:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
+
+  '@babel/runtime@7.26.0':
+    dependencies:
+      regenerator-runtime: 0.14.1
 
   '@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)':
     dependencies:
@@ -1757,9 +1853,25 @@ snapshots:
       buffer: 6.0.3
       simple-cbor: 0.4.1
 
+  '@dfinity/auth-client@2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/identity@2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)(@peculiar/webcrypto@1.5.0))(@dfinity/principal@2.1.3)':
+    dependencies:
+      '@dfinity/agent': 2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)
+      '@dfinity/identity': 2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)(@peculiar/webcrypto@1.5.0)
+      '@dfinity/principal': 2.1.3
+      idb: 7.1.1
+
   '@dfinity/candid@2.1.3(@dfinity/principal@2.1.3)':
     dependencies:
       '@dfinity/principal': 2.1.3
+
+  '@dfinity/identity@2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)(@peculiar/webcrypto@1.5.0)':
+    dependencies:
+      '@dfinity/agent': 2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)
+      '@dfinity/principal': 2.1.3
+      '@noble/curves': 1.7.0
+      '@noble/hashes': 1.6.1
+      '@peculiar/webcrypto': 1.5.0
+      borc: 2.1.2
 
   '@dfinity/principal@2.1.3':
     dependencies:
@@ -1889,6 +2001,35 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.1': {}
 
+  '@ic-reactor/core@1.14.2(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/auth-client@2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/identity@2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)(@peculiar/webcrypto@1.5.0))(@dfinity/principal@2.1.3))(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/identity@2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)(@peculiar/webcrypto@1.5.0))(@dfinity/principal@2.1.3)(@types/react@18.3.12)(react@18.3.1)':
+    dependencies:
+      '@dfinity/agent': 2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)
+      '@dfinity/auth-client': 2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/identity@2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)(@peculiar/webcrypto@1.5.0))(@dfinity/principal@2.1.3)
+      '@dfinity/candid': 2.1.3(@dfinity/principal@2.1.3)
+      '@dfinity/identity': 2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)(@peculiar/webcrypto@1.5.0)
+      '@dfinity/principal': 2.1.3
+      simple-cbor: 0.4.1
+      zustand: 4.5.5(@types/react@18.3.12)(react@18.3.1)
+    transitivePeerDependencies:
+      - '@types/react'
+      - immer
+      - react
+
+  '@ic-reactor/react@1.14.6(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/auth-client@2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/identity@2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)(@peculiar/webcrypto@1.5.0))(@dfinity/principal@2.1.3))(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/identity@2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)(@peculiar/webcrypto@1.5.0))(@dfinity/principal@2.1.3)(@types/react@18.3.12)(react@18.3.1)(zustand@4.5.5(@types/react@18.3.12)(react@18.3.1))':
+    dependencies:
+      '@dfinity/agent': 2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)
+      '@dfinity/auth-client': 2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/identity@2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)(@peculiar/webcrypto@1.5.0))(@dfinity/principal@2.1.3)
+      '@dfinity/candid': 2.1.3(@dfinity/principal@2.1.3)
+      '@dfinity/identity': 2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)(@peculiar/webcrypto@1.5.0)
+      '@dfinity/principal': 2.1.3
+      '@ic-reactor/core': 1.14.2(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/auth-client@2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/identity@2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)(@peculiar/webcrypto@1.5.0))(@dfinity/principal@2.1.3))(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/identity@2.1.3(@dfinity/agent@2.1.3(@dfinity/candid@2.1.3(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3))(@dfinity/principal@2.1.3)(@peculiar/webcrypto@1.5.0))(@dfinity/principal@2.1.3)(@types/react@18.3.12)(react@18.3.1)
+      react: 18.3.1
+      zustand: 4.5.5(@types/react@18.3.12)(react@18.3.1)
+      zustand-utils: 1.3.2(react@18.3.1)(zustand@4.5.5(@types/react@18.3.12)(react@18.3.1))
+    transitivePeerDependencies:
+      - '@types/react'
+      - immer
+
   '@jridgewell/gen-mapping@0.3.5':
     dependencies:
       '@jridgewell/set-array': 1.2.1
@@ -1925,6 +2066,24 @@ snapshots:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
+
+  '@peculiar/asn1-schema@2.3.13':
+    dependencies:
+      asn1js: 3.0.5
+      pvtsutils: 1.3.6
+      tslib: 2.8.1
+
+  '@peculiar/json-schema@1.1.12':
+    dependencies:
+      tslib: 2.8.1
+
+  '@peculiar/webcrypto@1.5.0':
+    dependencies:
+      '@peculiar/asn1-schema': 2.3.13
+      '@peculiar/json-schema': 1.1.12
+      pvtsutils: 1.3.6
+      tslib: 2.8.1
+      webcrypto-core: 1.8.1
 
   '@rollup/rollup-android-arm-eabi@4.27.4':
     optional: true
@@ -2105,13 +2264,6 @@ snapshots:
       - sugarss
       - svelte
       - typescript
-
-  '@tanstack/query-core@5.61.5': {}
-
-  '@tanstack/react-query@5.61.5(react@18.3.1)':
-    dependencies:
-      '@tanstack/query-core': 5.61.5
-      react: 18.3.1
 
   '@types/estree@1.0.6': {}
 
@@ -2297,6 +2449,12 @@ snapshots:
       get-intrinsic: 1.2.4
       is-array-buffer: 3.0.4
       is-shared-array-buffer: 1.0.3
+
+  asn1js@3.0.5:
+    dependencies:
+      pvtsutils: 1.3.6
+      pvutils: 1.1.3
+      tslib: 2.8.1
 
   available-typed-arrays@1.0.7:
     dependencies:
@@ -2771,6 +2929,8 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
+  idb@7.1.1: {}
+
   ieee754@1.2.1: {}
 
   ignore@5.3.2: {}
@@ -3095,6 +3255,12 @@ snapshots:
 
   punycode@2.3.1: {}
 
+  pvtsutils@1.3.6:
+    dependencies:
+      tslib: 2.8.1
+
+  pvutils@1.1.3: {}
+
   queue-microtask@1.2.3: {}
 
   react-dom@18.3.1(react@18.3.1):
@@ -3124,6 +3290,8 @@ snapshots:
       get-intrinsic: 1.2.4
       gopd: 1.0.1
       which-builtin-type: 1.2.0
+
+  regenerator-runtime@0.14.1: {}
 
   regexp.prototype.flags@1.5.3:
     dependencies:
@@ -3312,6 +3480,8 @@ snapshots:
     dependencies:
       typescript: 5.6.3
 
+  tslib@2.8.1: {}
+
   type-check@0.4.0:
     dependencies:
       prelude-ls: 1.2.1
@@ -3373,6 +3543,10 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
+  use-sync-external-store@1.2.2(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+
   util-deprecate@1.0.2: {}
 
   vite-plugin-environment@1.1.3(vite@6.0.1(jiti@2.4.1)(lightningcss@1.28.2)):
@@ -3388,6 +3562,14 @@ snapshots:
       fsevents: 2.3.3
       jiti: 2.4.1
       lightningcss: 1.28.2
+
+  webcrypto-core@1.8.1:
+    dependencies:
+      '@peculiar/asn1-schema': 2.3.13
+      '@peculiar/json-schema': 1.1.12
+      asn1js: 3.0.5
+      pvtsutils: 1.3.6
+      tslib: 2.8.1
 
   which-boxed-primitive@1.0.2:
     dependencies:
@@ -3437,3 +3619,17 @@ snapshots:
   yocto-queue@0.1.0: {}
 
   zimmerframe@1.1.2: {}
+
+  zustand-utils@1.3.2(react@18.3.1)(zustand@4.5.5(@types/react@18.3.12)(react@18.3.1)):
+    dependencies:
+      '@babel/runtime': 7.26.0
+      fast-deep-equal: 3.1.3
+      react: 18.3.1
+      zustand: 4.5.5(@types/react@18.3.12)(react@18.3.1)
+
+  zustand@4.5.5(@types/react@18.3.12)(react@18.3.1):
+    dependencies:
+      use-sync-external-store: 1.2.2(react@18.3.1)
+    optionalDependencies:
+      '@types/react': 18.3.12
+      react: 18.3.1
