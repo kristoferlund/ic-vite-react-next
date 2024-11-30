@@ -1,6 +1,6 @@
 # ICP + React + TypeScript + Vite
 
-This template provides a batteries included setup for an ICP/React application with the latest versions of Vite, TypeScript, Tailwind CSS, SWC, Eslint and React Query.
+This template provides a batteries included setup for an ICP/React application with the latest versions of Vite, TypeScript, Tailwind CSS, SWC, Eslint and IC Reactor library.
 
 > [!TIP]
 > Fork this repository as a starting point for your next ICP project.
