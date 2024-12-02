@@ -39,4 +39,3 @@ const Bubble: React.FC<BubbleProps> = ({ text, onComplete }) => {
 };
 
 export default Bubble;
-
