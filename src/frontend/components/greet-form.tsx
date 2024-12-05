@@ -8,7 +8,6 @@ type TimedBubble = {
 };
 
 export default function GreetForm() {
-  const [name, setName] = useState("");
   const [bubbles, setBubbles] = useState<TimedBubble[]>([]);
 
   const addBubble = (greeting: string) => {
@@ -36,30 +35,29 @@ export default function GreetForm() {
 
   const { mutate: greet, isPending } = useGreet(addBubble);
 
+  const submitAction = (formData: FormData) => {
+    greet(formData.get("name") as string);
+  };
+
   return (
     <div className="flex flex-col bg-[#522785] p-10 rounded-xl items-center text-xl text-white gap-5">
       <div>Hello stranger, what&apos;s your name?</div>
-      <div className="w-full flex flex-col gap-2">
+      <form className="w-full flex flex-col gap-2" action={submitAction}>
         <input
           type="text"
-          value={name}
+          name="name"
           placeholder="Name"
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
           className="w-full block rounded-md py-2.5 px-3.5 text-center border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 shadow-sm focus-visible:outline-white"
           data-1p-ignore
         />
         <button
-          onClick={() => {
-            greet(name);
-          }}
+          type="submit"
           disabled={isPending}
           className="w-full block rounded-md py-2.5 px-3.5 text-center text-[#522785] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/30 shadow-sm hover:bg-white/50 focus-visible:outline-white"
         >
           Greet
         </button>
-      </div>
+      </form>
       {bubbles.map((tb) => tb.bubble)}
     </div>
   );
