@@ -1,7 +1,7 @@
-import { ActorProvider, AgentProvider } from "@ic-reactor/react"
+import { AgentProvider } from "@ic-reactor/react"
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
-import { canisterId, idlFactory } from "../backend/declarations"
+import { BackendProvider } from "./service/backend.ts"
 import App from "./App.tsx"
 import "./index.css"
 
@@ -14,9 +14,9 @@ if (!rootElement) {
 createRoot(rootElement).render(
   <StrictMode>
     <AgentProvider withProcessEnv>
-      <ActorProvider canisterId={canisterId} idlFactory={idlFactory}>
+      <BackendProvider>
         <App />
-      </ActorProvider>
+      </BackendProvider>
     </AgentProvider>
   </StrictMode>
 )
