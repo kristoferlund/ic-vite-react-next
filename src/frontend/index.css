@@ -4,7 +4,6 @@
   --font-display: "Arial", "sans-serif";
   --animate-float: float 3s ease-in;
 
-
   @keyframes float {
     to {
       transform: translateY(-800%);
@@ -14,13 +13,13 @@
 }
 
 body {
-  @apply bg-black
+  @apply bg-black;
 }
 
 main {
-  @apply w-full h-lvh flex justify-center items-center bg-radial-[at_50%_50%] from-[#1e005d] to-black to-50% size-24 rounded-full
+  @apply w-full h-lvh flex justify-center items-center bg-radial-[at_50%_50%] from-[#1e005d] to-black to-50% size-24 rounded-full;
 }
 
 h1 {
-  @apply font-medium text-4xl text-white 
+  @apply font-medium text-4xl text-white;
 }
