@@ -1,17 +1,17 @@
-import { useState } from "react";
-import useGreet from "../hooks/use-greet";
-import Bubble from "./bubble";
+import { useState } from "react"
+import { useBackend } from "../service/backend"
+import Bubble from "./bubble"
 
 type TimedBubble = {
-  id: number;
-  bubble: React.JSX.Element;
-};
+  id: number
+  bubble: React.JSX.Element
+}
 
 export default function GreetForm() {
-  const [bubbles, setBubbles] = useState<TimedBubble[]>([]);
+  const [bubbles, setBubbles] = useState<TimedBubble[]>([])
 
   const addBubble = (greeting: string) => {
-    const id = Date.now();
+    const id = Date.now()
     setBubbles((prev) => [
       ...prev,
       {
@@ -21,23 +21,28 @@ export default function GreetForm() {
             key={id}
             text={greeting}
             onComplete={() => {
-              removeBubble(id);
+              removeBubble(id)
             }}
           />
         ),
       },
-    ]);
-  };
+    ])
+  }
 
   const removeBubble = (id: number) => {
-    setBubbles((prev) => prev.filter((tb) => tb.id !== id));
-  };
+    setBubbles((prev) => prev.filter((tb) => tb.id !== id))
+  }
 
-  const { mutate: greet, isPending } = useGreet(addBubble);
+  const { call, loading } = useBackend({
+    functionName: "greet",
+    onSuccess: addBubble,
+  })
 
-  const submitAction = (formData: FormData) => {
-    greet(formData.get("name") as string);
-  };
+  const submitAction = async (formData: FormData) => {
+    const name = formData.get("name") as string
+
+    await call([name])
+  }
 
   return (
     <div className="flex flex-col bg-[#522785] p-10 rounded-xl items-center text-xl text-white gap-5">
@@ -47,18 +52,18 @@ export default function GreetForm() {
           type="text"
           name="name"
           placeholder="Name"
-          className="w-full block rounded-md py-2.5 px-3.5 text-center border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 shadow-sm focus-visible:outline-white"
+          className="w-full block rounded-md py-2.5 px-3.5 text-center border focus-visible:outline-2 focus-visible:outline-offset-2 shadow-sm focus-visible:outline-white"
           data-1p-ignore
         />
         <button
           type="submit"
-          disabled={isPending}
-          className="w-full block rounded-md py-2.5 px-3.5 text-center text-[#522785] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/30 shadow-sm hover:bg-white/50 focus-visible:outline-white"
+          disabled={loading}
+          className="w-full block rounded-md py-2.5 px-3.5 text-center text-[#522785] focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/30 shadow-sm hover:bg-white/50 focus-visible:outline-white"
         >
           Greet
         </button>
       </form>
       {bubbles.map((tb) => tb.bubble)}
     </div>
-  );
+  )
 }
