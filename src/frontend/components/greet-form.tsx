@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useGreet from "../hooks/use-greet";
+import { useBackend } from "../service/backend";
 import Bubble from "./bubble";
 
 type TimedBubble = {
@@ -33,10 +33,15 @@ export default function GreetForm() {
     setBubbles((prev) => prev.filter((tb) => tb.id !== id));
   };
 
-  const { mutate: greet, isPending } = useGreet(addBubble);
+  const { call, loading } = useBackend({
+    functionName: "greet",
+    onSuccess: addBubble,
+  });
 
-  const submitAction = (formData: FormData) => {
-    greet(formData.get("name") as string);
+  const submitAction = async (formData: FormData) => {
+    const name = formData.get("name") as string;
+
+    await call([name]);
   };
 
   return (
@@ -47,13 +52,13 @@ export default function GreetForm() {
           type="text"
           name="name"
           placeholder="Name"
-          className="w-full block rounded-md py-2.5 px-3.5 text-center border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 shadow-sm focus-visible:outline-white"
+          className="w-full block rounded-md py-2.5 px-3.5 text-center border focus-visible:outline-2 focus-visible:outline-offset-2 shadow-sm focus-visible:outline-white"
           data-1p-ignore
         />
         <button
           type="submit"
-          disabled={isPending}
-          className="w-full block rounded-md py-2.5 px-3.5 text-center text-[#522785] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/30 shadow-sm hover:bg-white/50 focus-visible:outline-white"
+          disabled={loading}
+          className="w-full block rounded-md py-2.5 px-3.5 text-center text-[#522785] focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/30 shadow-sm hover:bg-white/50 focus-visible:outline-white"
         >
           Greet
         </button>
