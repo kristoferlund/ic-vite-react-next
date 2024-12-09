@@ -7,6 +7,9 @@ This template provides a batteries included setup for an ICP/React application w
 >
 > Live demo: <https://upacy-bqaaa-aaaal-qr7qa-cai.icp0.io>
 
+> [!TIP]
+> This template is also available in a version using [ic-reactor](https://www.npmjs.com/package/@ic-reactor/react) instead of React Query. Check out that version from the [ic-reactor branch](https://github.com/kristoferlund/ic-vite-react-next/tree/ic-reactor).
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -94,6 +97,34 @@ During development, you can run the frontend with hot reloading using Vite.
 ```bash
 pnpm run dev
 ```
+
+## Contributors
+
+<!-- readme: collaborators,contributors -start -->
+<table>
+ <tbody>
+  <tr>
+            <td align="center">
+                <a href="https://github.com/kristoferlund">
+                    <img src="https://avatars.githubusercontent.com/u/9698363?v=4" width="100;" alt="kristoferlund"/>
+                    <br />
+                    <sub><b>Kristofer</b></sub>
+                </a>
+            </td>
+  </tr>
+ <tbody>
+</table>
+<!-- readme: collaborators,contributors -end -->
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more
+details.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request if you
+have any suggestions or improvements.
 
 [contributors-shield]: https://img.shields.io/github/contributors/kristoferlund/ic-vite-react-next.svg?style=for-the-badge
 [contributors-url]: https://github.com/kristoferlund/ic-vite-react-next/graphs/contributors
