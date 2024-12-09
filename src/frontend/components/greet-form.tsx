@@ -1,17 +1,17 @@
-import { useState } from "react"
-import { useBackend } from "../service/backend"
-import Bubble from "./bubble"
+import { useState } from "react";
+import { useBackend } from "../service/backend";
+import Bubble from "./bubble";
 
 type TimedBubble = {
-  id: number
-  bubble: React.JSX.Element
-}
+  id: number;
+  bubble: React.JSX.Element;
+};
 
 export default function GreetForm() {
-  const [bubbles, setBubbles] = useState<TimedBubble[]>([])
+  const [bubbles, setBubbles] = useState<TimedBubble[]>([]);
 
   const addBubble = (greeting: string) => {
-    const id = Date.now()
+    const id = Date.now();
     setBubbles((prev) => [
       ...prev,
       {
@@ -21,28 +21,28 @@ export default function GreetForm() {
             key={id}
             text={greeting}
             onComplete={() => {
-              removeBubble(id)
+              removeBubble(id);
             }}
           />
         ),
       },
-    ])
-  }
+    ]);
+  };
 
   const removeBubble = (id: number) => {
-    setBubbles((prev) => prev.filter((tb) => tb.id !== id))
-  }
+    setBubbles((prev) => prev.filter((tb) => tb.id !== id));
+  };
 
   const { call, loading } = useBackend({
     functionName: "greet",
     onSuccess: addBubble,
-  })
+  });
 
   const submitAction = async (formData: FormData) => {
-    const name = formData.get("name") as string
+    const name = formData.get("name") as string;
 
-    await call([name])
-  }
+    await call([name]);
+  };
 
   return (
     <div className="flex flex-col bg-[#522785] p-10 rounded-xl items-center text-xl text-white gap-5">
@@ -65,5 +65,5 @@ export default function GreetForm() {
       </form>
       {bubbles.map((tb) => tb.bubble)}
     </div>
-  )
+  );
 }
