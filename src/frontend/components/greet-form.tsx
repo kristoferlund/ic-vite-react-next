@@ -1,6 +1,8 @@
 import { useState } from "react";
 import useGreet from "../hooks/use-greet";
 import Bubble from "./bubble";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 type TimedBubble = {
   id: number;
@@ -43,20 +45,21 @@ export default function GreetForm() {
     <div className="flex flex-col bg-[#522785] p-10 rounded-xl items-center text-xl text-white gap-5">
       <div>Hello stranger, what&apos;s your name?</div>
       <form className="w-full flex flex-col gap-2" action={submitAction}>
-        <input
+        <Input
           type="text"
           name="name"
           placeholder="Name"
-          className="w-full block rounded-md py-2.5 px-3.5 text-center border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 shadow-sm focus-visible:outline-white"
+          className="w-full text-lg text-center"
           data-1p-ignore
         />
-        <button
+        <Button
           type="submit"
           disabled={isPending}
-          className="w-full block rounded-md py-2.5 px-3.5 text-center text-[#522785] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/30 shadow-sm hover:bg-white/50 focus-visible:outline-white"
+          className="w-full text-lg text-[#522785] bg-white/50"
+          size={"lg"}
         >
           Greet
-        </button>
+        </Button>
       </form>
       {bubbles.map((tb) => tb.bubble)}
     </div>

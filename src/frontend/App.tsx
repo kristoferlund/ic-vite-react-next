@@ -5,7 +5,7 @@ import GreetForm from "./components/greet-form";
 
 function App() {
   return (
-    <main>
+    <main className="dark">
       <div className="flex flex-col gap-14 items-center">
         <div className="flex gap-10">
           <a

@@ -36,7 +36,7 @@ Dependencies:
 - [Tanstack Query 5](https://tanstack.com/query/latest): The template uses Tanstack Query for data fetching, caching and loading state management.
 - [SWC](https://swc.rs/): The Rust based compiler and bundler that provides up to 70x faster build times than Babel.
 - [Eslint 9](https://eslint.org/): The latest release of Eslint introduces the flat configuration API along with new rules and bug fixes.
-- [shadcn/ui](https://ui.shadcn.com/): Sorry, no. Shadcn is not available for Tailwind 4 yet. Soon hopefully.
+- [shadcn/ui](https://ui.shadcn.com/): Yes, shadcn support for Tailwind 4 is finally here!
 
 ## Setup, dev environment
 
