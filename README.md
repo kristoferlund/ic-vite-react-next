@@ -1,6 +1,6 @@
-# ICP + React + TypeScript + Vite
+# ICP + React + TypeScript + Vite + Tailwind + Shadcn/UI + Tanstack Query/Router
 
-This template provides a batteries included setup for an ICP/React application with the latest versions of Vite, TypeScript, Tailwind CSS, SWC, Eslint and Tanstack Query.
+This template provides a batteries included setup for an ICP/React application with the latest versions of Vite, TypeScript, Tailwind CSS, Shadcn/UI, SWC, Eslint and Tanstack Query/Router.
 
 > [!TIP]
 > Fork this repository as a starting point for your next ICP project.
