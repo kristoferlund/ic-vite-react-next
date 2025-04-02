@@ -1,10 +1,11 @@
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import icLogo from "./assets/ic.svg";
-import GreetForm from "./components/greet-form";
+import reactLogo from "../assets/react.svg";
+import viteLogo from "../assets/vite.svg";
+import icLogo from "../assets/ic.svg";
+import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
+import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
-function App() {
-  return (
+export const Route = createRootRoute({
+  component: () => (
     <main className="dark">
       <div className="flex flex-col gap-14 items-center">
         <div className="flex gap-10">
@@ -23,10 +24,13 @@ function App() {
           </a>
         </div>
         <h1>ICP + Vite + React</h1>
-        <GreetForm />
+        <div className="flex gap-5 text-white underline">
+          <Link to="/">/index</Link>
+          <Link to="/about">/about</Link>
+        </div>
+        <Outlet />
+        <TanStackRouterDevtools />
       </div>
     </main>
-  );
-}
-
-export default App;
+  ),
+});

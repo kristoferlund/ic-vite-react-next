@@ -42,7 +42,7 @@ export default function GreetForm() {
   };
 
   return (
-    <div className="flex flex-col bg-[#522785] p-10 rounded-xl items-center text-xl text-white gap-5">
+    <div className="w-[400px] flex flex-col bg-[#522785] p-10 rounded-xl items-center text-xl text-white gap-5">
       <div>Hello stranger, what&apos;s your name?</div>
       <form className="w-full flex flex-col gap-2" action={submitAction}>
         <Input
