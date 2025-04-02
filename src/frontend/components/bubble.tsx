@@ -6,25 +6,25 @@ interface BubbleProps {
 }
 
 const Bubble: React.FC<BubbleProps> = ({ text, onComplete }) => {
-  const [left, setLeft] = useState(0);
+  const [left, setLeft] = useState<number | null>(null);
 
-  // Randomize left position
   useEffect(() => {
     const min = 200;
     const max = window.innerWidth - 300;
     setLeft(Math.floor(Math.random() * (max - min + 1)) + min);
   }, []);
 
-  // Call onComplete after animation has finished
   useEffect(() => {
+    if (left === null) return;
     const timeout = setTimeout(() => {
       onComplete();
     }, 3000);
-
     return () => {
       clearTimeout(timeout);
     };
-  }, [onComplete]);
+  }, [left, onComplete]);
+
+  if (left === null) return null; // don't render until left is set
 
   return (
     <div
