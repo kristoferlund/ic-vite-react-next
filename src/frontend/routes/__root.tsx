@@ -3,6 +3,7 @@ import viteLogo from "../assets/vite.svg";
 import icLogo from "../assets/ic.svg";
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
+import GithubLink from "@/components/github-link";
 
 export const Route = createRootRoute({
   component: () => (
@@ -28,9 +29,14 @@ export const Route = createRootRoute({
           React + TypeScript + Vite + Tailwind + Shadcn/UI + Tanstack
           Query/Router
         </h2>
-        <div className="flex gap-5 text-white underline">
-          <Link to="/">/index</Link>
-          <Link to="/about">/about</Link>
+        <div className="flex gap-5 text-white items-center">
+          <Link to="/" className="hover:text-white/70">
+            /index
+          </Link>
+          <Link to="/about" className="hover:text-white/70">
+            /about
+          </Link>
+          <GithubLink />
         </div>
         <Outlet />
         <TanStackRouterDevtools />
